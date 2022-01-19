@@ -9,35 +9,13 @@ function App() {
   let node = [];
   const [m, setEdge] = useState([]);
   console.log("m: ", m);
-  //
+
   const [n, setNode] = useState([]);
   console.log("n: ", n);
-  //
-
-  // useEffect(() => {
-  // });
 
   let graph = {
     nodes: n,
-    // [
-    //   { id: 1, label: "Node id" },
-    //   { id: 2, label: "Node 2" },
-    //   { id: 3, label: "Node 3" },
-    //   { id: 4, label: "Node 4" },
-    //   { id: 5, label: "Node 5" },
-    //   { id: 6, label: "Node 6" },
-    // ],
     edges: m,
-    // [
-    //   { from: 0, to: 1, weight: 5 },
-    //   { from: 1, to: 2, weight: 5 },
-    //   { from: 1, to: 3, weight: 5 },
-    //   { from: 2, to: 4, weight: 5 },
-    //   { from: 2, to: 5, weight: 5 },
-    //   { from: 5, to: 1, weight: 5 },
-    //   { from: 5, to: 3, weight: 5 },
-    //   { from: 5, to: 2, weight: 5 },
-    // ],
   };
 
   const options = {
@@ -69,7 +47,6 @@ function App() {
         node.push({ id: i, label: `Node ${i}` });
       }
 
-      // setNode(node);
       for (let i = no + 5; i < a.length - 3; i++) {
         let ed = a[i];
 
@@ -85,15 +62,9 @@ function App() {
         }
       }
 
-      //
       console.log("edge: ", edge);
       setEdge([...edge]);
-      // setEdge([
-      //   ...edge.map((v) => {
-      //     let { id, ...k } = v;
-      //     return { ...k };
-      //   }),
-      // ]);
+
       console.log("node111111: ", node);
       setNode([...node]);
       console.log("node2222222: ", node);
