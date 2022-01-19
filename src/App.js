@@ -79,7 +79,7 @@ function App() {
           edge = edge.concat({
             from: edg[0],
             to: edg[j],
-            weight: edg[j + 2],
+            weight: parseFloat(edg[j + 2]),
             id: Math.random(),
           });
         }
@@ -103,7 +103,7 @@ function App() {
   const getDijkastra = async () => {
     await axios.request({
       method: "PUT",
-      url: `http://localhost:4000/api/v1/kpis/getFloydWarshall`,
+      url: `http://localhost:4000/api/v1/kpis/getCluster`,
       data: graph,
     });
   };
@@ -117,17 +117,19 @@ function App() {
           getDijkastra();
         }}
       >
-        asd
+        get api call
       </button>
-      <Graph
-        key={uuidv4}
-        graph={graph}
-        options={options}
-        events={events}
-        getNetwork={(network) => {
-          //  if you want access to vis.js network api you can set the state in a parent component using this property
-        }}
-      />
+      <div style={{ backgroundColor: "red", width: "70%" }}>
+        <Graph
+          key={uuidv4}
+          graph={graph}
+          options={options}
+          events={events}
+          getNetwork={(network) => {
+            //  if you want access to vis.js network api you can set the state in a parent component using this property
+          }}
+        />
+      </div>
     </div>
   );
 }
