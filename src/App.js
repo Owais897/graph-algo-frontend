@@ -1,19 +1,13 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Graph from "react-graph-vis";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { Row, Col, Button, Tag } from "antd";
 import { Select } from "antd";
-import { Layout, Menu, Breadcrumb } from "antd";
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-} from "@ant-design/icons";
+import { Layout, Menu } from "antd";
 
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Header } = Layout;
 const { Option } = Select;
 
 function App() {
@@ -118,19 +112,10 @@ function App() {
             <Menu.Item style={{ marginLeft: 50 }} key="2">
               <input type="file" onChange={showFile} />
             </Menu.Item>
-            {/* <Menu.Item key="3">owais</Menu.Item> */}
           </Menu>
         </Header>
       </Layout>
 
-      {/* <input type="file" onChange={showFile} />
-      <button
-        onClick={() => {
-          runAlgo();
-        }}
-      >
-        get api call
-      </button> */}
       <Row>
         <Col span={18} style={{ backgroundColor: "gray" }}>
           <Graph
@@ -185,13 +170,10 @@ function App() {
                       })
                     : "";
                 })}
-              {
-                // [].includes(algo)&&
-                algo !== "getFloydWarshall" &&
-                  response.map((v) => {
-                    return <Tag color="success">{v}</Tag>;
-                  })
-              }
+              {algo !== "getFloydWarshall" &&
+                response.map((v) => {
+                  return <Tag color="success">{v}</Tag>;
+                })}
             </div>
           ) : (
             ""
